@@ -1,32 +1,29 @@
-install commands :
-import database
+- *install commands :
+- 1-import database
 
-run:
-composer install
-npm install
-php artisan storage:link
-php artisan serve
-
-
-
-refresh app:
-php artisan cache:clear;
-php artisan config:clear;
-php artisan route:clear;
-php artisan view:clear;
-
-Import Models into the Search Index:
-php artisan scout:import "App\\Models\Mood"
-php artisan scout:import "App\\Models\Subject" 
-php artisan scout:import "App\\Models\Chapter"
-php artisan scout:import "App\\Models\Subscription" 
-php artisan scout:import "App\\Models\Question" 
-php artisan scout:import "App\\Models\\Answer"
-php artisan scout:import "App\\Models\\ExamSession"
-php artisan scout:import "App\\Models\\ExamHistory"
+- 2-run:
+- composer install
+- npm install
+- php artisan storage:link
+- php artisan serve
+- php artisan storage:link
 
 
+- refresh app:
+- php artisan cache:clear;
+- php artisan config:clear;
+- php artisan route:clear;
+- php artisan view:clear;
 
+- Import Models into the Search Index:
+- php artisan scout:import "App\\Models\Mood"
+- php artisan scout:import "App\\Models\Subject" 
+- php artisan scout:import "App\\Models\Chapter"
+- php artisan scout:import "App\\Models\Subscription" 
+- php artisan scout:import "App\\Models\Question" 
+- php artisan scout:import "App\\Models\\Answer"
+- php artisan scout:import "App\\Models\\ExamSession"
+- php artisan scout:import "App\\Models\\ExamHistory"
 
 
 Exams Application Specification Document
