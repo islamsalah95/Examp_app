@@ -1,3 +1,5 @@
+- Islam salah
+
 - *install commands :
 - 1-import database
 
@@ -7,6 +9,7 @@
 - php artisan storage:link
 - php artisan serve
 - php artisan storage:link
+- php artisan db:seed
 
 
 - refresh app:

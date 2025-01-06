@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Database\QueryException;
+use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\Dash\DashLoginController;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +14,27 @@ use App\Http\Controllers\Dash\DashLoginController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
+Route::get('migrateee', function () {
+    try {
+        // Artisan::call('storage:link', [
+        //     '--php artisan db:seed' => true,
+        // ]);
+
+        // Artisan::call('migrate', [
+        //     '--force' => true,
+        // ]);
+        
+        Artisan::call('db:seed'); 
+        
+    return response()->json(['message' => 'Migration ran successfully.']);
+    } catch (QueryException $e) {
+        return response()->json(['error' => 'Migration failed: ' . $e->getMessage()], 500);
+    } catch (\Exception $e) {
+        return response()->json(['error' => 'An error occurred: ' . $e->getMessage()], 500);
+    }
+});
 
 
 Route::middleware('guest')->group(function () {
