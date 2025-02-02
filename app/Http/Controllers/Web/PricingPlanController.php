@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Web;
 
+use App\Models\Subject;
 use App\Models\PricingPlan;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StorePricingPlanRequest;
@@ -13,18 +14,18 @@ class PricingPlanController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Subject $subject)
     {
-        $pricingPlans = PricingPlan::all();
-        return view('dash.web.pricing-plan.index', compact('pricingPlans'));
+        $pricingPlans = PricingPlan::with('subject')->where('subject_id',$subject->id)->get();
+        return view('dash.web.pricing-plan.index', compact('pricingPlans','subject'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Subject $subject)
     {
-        return view('dash.web.pricing-plan.create');
+        return view('dash.web.pricing-plan.create',compact('subject'));
     }
 
     /**

@@ -89,8 +89,9 @@
                                     <ul class="list-unstyled mb-0">
                                         @foreach ($subject->pricingPlans as $pricingPlan)
                                             <li>
-                                                <i class="ti ti-tag text-primary"></i> {{ $pricingPlan->name }}
-                                            </li>
+                                    <a href="{{ route('pricing-plan.edit', ['pricing_plan' => $pricingPlan['id']]) }}"><i class="ti ti-tag text-primary"></i> {{ $pricingPlan->name }}</a>
+                                
+                                </li>
                                         @endforeach
                                     </ul>
                                 @else
@@ -119,6 +120,18 @@
                                         <a class="dropdown-item" href="{{ route('subject.edit', ['subject' => $subject['id']]) }}">
                                             <i class="ti ti-pencil"></i> Edit
                                         </a>
+
+
+                                        <a class="dropdown-item" href="{{ route('pricing-plan.create', ['subject' => $subject['id']]) }}" title="Assign Pricing Plan">
+                                            <i class="ti ti-pencil" aria-hidden="true"></i> Assign Pricing Plan
+                                        </a>
+
+                                        <a class="dropdown-item" href="{{route('pricing-plan.index',['subject'=>$subject['id']])}}" title="Assign Pricing Plan">
+                                            <i class="ti ti-pencil" aria-hidden="true"></i> Pricing Plans
+                                        </a>
+                                        
+
+
                                         <button class="dropdown-item text-danger" type="button"
                                             wire:click="delete({{ $subject['id'] }})"
                                             wire:confirm="{{ __('subjects/index.delete_confirm') }}">

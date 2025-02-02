@@ -78,47 +78,24 @@
                         </div>
 
 
-                        <!-- chapter_id -->
+                        <!-- exam_id -->
                         <div class="mb-3">
-                            <label for="chapter_id" class="form-label">Chapter</label>
-                            <select id="chapter_id" class="form-control @error('chapter_id') is-invalid @enderror"
-                                name="chapter_id">
+                            <label for="exam_id" class="form-label">exams</label>
+                            <select id="exam_id" class="form-control @error('exam_id') is-invalid @enderror"
+                                name="exam_id">
                                 <option value="">Select one</option>
-                                @foreach ($chapters as $chapter)
-                                    <option value="{{ $chapter->id }}" @selected(old('chapter_id') == $chapter->id)>
-                                        {{ $chapter->name }}
+                                @foreach ($exams as $exam)
+                                    <option value="{{ $exam->id }}" @selected(old('exam_id') == $exam->id)>
+                                        {{ $exam->name }}
                                     </option>
                                 @endforeach
                             </select>
-                            @error('chapter_id')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                        </div>
-
-                        <!-- free_trial -->
-                        <div class="mb-3">
-                            <label for="free_trial" class="form-label">Free Trial</label>
-                            <select id="free_trial" class="form-control @error('free_trial') is-invalid @enderror" name="free_trial">
-                                <option value="">Select one</option>
-                                <option value="1" @selected(old('free_trial')=='1')>Yes</option>
-                                <option value="0" @selected(old('free_trial')=='0')>No</option>
-                            </select>
-                            @error('chapter_id')
+                            @error('exam_id')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
 
 
-                        <!-- year-->
-                        <div class="mb-3">
-                            <label for="year" class="form-label">Year</label>
-                            <input type="number" id="year"
-                                class="form-control @error('year') is-invalid @enderror" name="year"
-                                value="{{ old('year') }}" placeholder="year">
-                            @error('year')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                        </div>
 
 
                         {{-- Answers start --}}

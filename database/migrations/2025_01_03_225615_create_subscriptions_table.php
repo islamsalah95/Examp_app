@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('subscriptions', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->string('pricing_plan_id'); // Free Trial, Basic, Standard, Premium
-            $table->integer('months'); 
-            $table->enum('discount',[0,1])->default(0);// dont have discount;
+            $table->foreignId('subject_id')->constrained()->onDelete('cascade');
+            $table->foreignId('pricing_plan_id')->constrained()->onDelete('cascade');
+            $table->integer('discount')->default(0);
             $table->date('expires_at')->nullable();
             $table->timestamps();
         });

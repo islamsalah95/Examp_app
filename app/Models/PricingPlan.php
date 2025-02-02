@@ -10,10 +10,10 @@ class PricingPlan extends Model
 {
     use HasFactory , Searchable ;
 
-    protected $fillable = ['name','period_count','period_type','status','price','discount','free_trial'];
-    public function subjects()
+    protected $fillable = ['name','period_count','period_type','status','price','discount','free_trial','subject_id'];
+    public function subject()
     {
-        return $this->belongsToMany(Subject::class, 'pricing_plan_subject');
+        return $this->belongsTo(Subject::class);
     }
     
     

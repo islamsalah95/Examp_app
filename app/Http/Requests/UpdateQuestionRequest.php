@@ -23,22 +23,17 @@ class UpdateQuestionRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'chapter_id'=>['required','exists:chapters,id'],
-
+            'exam_id'=>['required','exists:exams,id'],
             'question_text' => ['required', 'string'], 
             'description' => ['required', 'string'], 
             'summary' => ['required', 'string'], 
-            
             'answer_a' => ['required', 'string'], 
             'answer_b' => ['required', 'string'], 
             'answer_c' => ['required', 'string'], 
             'answer_d' => ['required', 'string'], 
             'answer_e' => ['required', 'string'], 
-
             'img'     => 'nullable|max:5000',
 
-            'free_trial' => ['required', 'in:1,0'], 
-            'year' => ['required', 'digits:4', 'integer', new Year()],
         ];
     }
 }

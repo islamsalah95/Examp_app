@@ -16,9 +16,7 @@ return new class extends Migration
             $table->text('question_text');
             $table->text('description')->nullable();
             $table->text('summary')->nullable();
-            $table->boolean('free_trial')->default(false); // Free trial availability ,'free_trial','year'
-            $table->year('year');
-            $table->foreignId('chapter_id')->constrained()->onDelete('cascade');
+            $table->foreignId('exam_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Web;
 
+use App\Models\Exam;
 use App\Models\Answer;
 use App\Models\Chapter;
 use App\Models\Question;
@@ -25,8 +26,8 @@ class QuestionController extends Controller
      */
     public function create()
     {
-        $chapters = Chapter::all();
-        return view('dash.web.question.create', compact('chapters'));
+        $exams = Exam::all();
+        return view('dash.web.question.create', compact('exams'));
     }
 
     /**
@@ -90,10 +91,10 @@ class QuestionController extends Controller
     public function edit(Question $question)
     {
         $answers = $question->answers; // Assuming a relationship exists
-        $chapters = Chapter::all(); // Fetch chapters for the dropdown
+        $exams = Exam::all(); // Fetch chapters for the dropdown
 
 
-        return view('dash.web.question.edit', compact('question', 'answers', 'chapters'));
+        return view('dash.web.question.edit', compact('question', 'answers', 'exams'));
     }
 
     /**
@@ -145,10 +146,10 @@ class QuestionController extends Controller
     public function editAnswers(Question $question)
     {
         $answers = $question->answers; // Assuming a relationship exists
-        $chapters = Chapter::all(); // Fetch chapters for the dropdown
+        $exams = Exam::all(); // Fetch chapters for the dropdown
 
 
-        return view('dash.web.question.edit-answers', compact('question', 'answers', 'chapters'));
+        return view('dash.web.question.edit-answers', compact('question', 'answers', 'exams'));
     }
 
     /**

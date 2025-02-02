@@ -24,7 +24,7 @@ class StoreQuestionRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'chapter_id'=>['required','exists:chapters,id'],
+            'exam_id'=>['required','exists:exams,id'],
 
             'question_text' => ['required', 'string'], 
             'description' => ['required', 'string'], 
@@ -35,15 +35,9 @@ class StoreQuestionRequest extends FormRequest
             'answer_c' => ['required', 'string'], 
             'answer_d' => ['required', 'string'], 
             'answer_e' => ['required', 'string'], 
-            
             'correct_answer' => ['required', 'string', 'in:answer_a,answer_b,answer_c,answer_d,answer_e'],
-
             // 'img' => ['nullable', 'image', 'mimes:jpg,jpeg,png,bmp,gif,svg,webp,tiff,tif,ico', 'max:9000'],
             'img'     => 'required|max:5000',
-
-            'free_trial' => ['required', 'in:1,0'], 
-            'year' => ['required', 'digits:4', 'integer', new Year()],
-
         ];
     }
 }

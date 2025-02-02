@@ -33,10 +33,10 @@ class Index extends Component
     {
         if ($this->search) {
             $questions = Question::search($this->search)->query(function ($query) {
-                $query->with('chapter'); // Include the relationship
+                $query->with('exam'); // Include the relationship
             })->paginate($this->select);
         } else {
-            $questions = Question::with('chapter')->paginate($this->select);
+            $questions = Question::with('exam')->paginate($this->select);
         }
         
         

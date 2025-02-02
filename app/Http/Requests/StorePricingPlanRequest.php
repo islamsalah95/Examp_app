@@ -29,6 +29,7 @@ class StorePricingPlanRequest extends FormRequest
             'price' => 'required|numeric|min:0',
             'discount' => 'nullable|numeric|min:0',
             'free_trial' => 'required|boolean',
+            'subject_id'=>'required|numeric|exists:subjects,id'
         ];
     }
 }

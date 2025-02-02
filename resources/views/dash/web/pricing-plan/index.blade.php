@@ -7,7 +7,7 @@
 @section('content')
 
 
-@livewire('pricing-plan.index')
+@livewire('pricing-plan.index',['subject'=>$subject])
 
 
 @endsection

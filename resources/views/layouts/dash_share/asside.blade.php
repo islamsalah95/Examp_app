@@ -52,7 +52,7 @@
                 </li>
                 <!-- Components -->
 
-                <!-- pricing-plan -->
+                {{-- <!-- pricing-plan -->
                 <li class="menu-item {{ route_is('pricing-plan.*', 'open') }}" id="pricing-plan">
                     <a href="{{ route('pricing-plan.index') }}" class="menu-link menu-toggle">
                         <i class="menu-icon tf-icons ti ti-currency-dollar"></i> 
@@ -65,13 +65,8 @@
                                 <div data-i18n="Show">Show</div>
                             </a>
                         </li>
-                        <li class="menu-item {{ route_is('pricing-plan.create', 'active') }}">
-                            <a href="{{ router('pricing-plan.create') }}" class="menu-link">
-                                <div data-i18n="Create">Create</div>
-                            </a>
-                        </li>
                     </ul>
-                </li>
+                </li> --}}
 
                 <!-- Subjects -->
                 <li class="menu-item {{ route_is('subject.*', 'open') }}" id="subject">
@@ -116,6 +111,29 @@
                     </ul>
                 </li>
                 <!-- Chapters -->
+
+
+                <!-- exams -->
+                <li class="menu-item {{ route_is('exam.*', 'open') }}" id="exam">
+                    <a href="{{ router('exam.index') }}" class="menu-link menu-toggle">
+                        <i class="menu-icon tf-icons ti ti-clipboard"></i>
+                        <div data-i18n="Exams">exams</div>
+                        <div class="badge bg-primary rounded-pill ms-auto">0</div>
+                    </a>
+                    <ul class="menu-sub">
+                        <li class="menu-item {{ route_is('exam.index', 'active') }}">
+                            <a href="{{ router('exam.index') }}" class="menu-link">
+                                <div data-i18n="Show">Show</div>
+                            </a>
+                        </li>
+                        <li class="menu-item {{ route_is('exam.create', 'active') }}">
+                            <a href="{{ router('exam.create') }}" class="menu-link">
+                                <div data-i18n="Create">Create</div>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- exams -->
 
                 <!-- Questions -->
                 <li class="menu-item {{ route_is('question.*', 'open') }}" id="question">

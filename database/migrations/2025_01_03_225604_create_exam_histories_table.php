@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('exam_session_id');
             $table->unsignedBigInteger('exam_question_id');
-            $table->unsignedBigInteger('exam_answer_id');
+            $table->unsignedBigInteger('exam_answer_id')->default(null);
             $table->timestamps();
         
             // Foreign Key Constraints

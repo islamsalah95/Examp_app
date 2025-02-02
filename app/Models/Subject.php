@@ -30,7 +30,7 @@ class Subject extends Model
 
     public function pricingPlans()
 {
-    return $this->belongsToMany(PricingPlan::class, 'pricing_plan_subject');
+    return $this->hasMany(PricingPlan::class);
 }
 
     public function toSearchableArray()

@@ -14,7 +14,7 @@ class SubscriptionController extends Controller
      */
     public function index()
     {
-        return view('dash.web.subject.index');
+        return view('dash.web.subscription.index');
     }
 
     /**
@@ -22,7 +22,7 @@ class SubscriptionController extends Controller
      */
     public function create()
     {
-        return view('dash.web.subject.create');
+        return view('dash.web.subscription.create');
 
     }
 

@@ -16,8 +16,8 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('mood_id')->constrained()->onDelete('cascade');
             $table->foreignId('subject_id')->nullable()->constrained()->onDelete('set null');
-            $table->json('years')->nullable();
             $table->json('chapters')->nullable();
+            $table->json('exams')->nullable();
             $table->integer('question_count');
             $table->enum('status', ['completed', 'ongoing'])->default('ongoing');
             $table->timestamps();

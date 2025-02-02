@@ -18,8 +18,9 @@ return new class extends Migration
             $table->enum('period_type', ['weeks', 'months']); // Period type
             $table->enum('status', ['soon', 'active']); // Status of the plan
             $table->decimal('price', 10, 2); // Price of the plan
-            $table->decimal('discount', 10, 2)->default(0); // Discount amount
+            $table->integer('discount')->default(0); // Discount amount
             $table->boolean('free_trial')->default(false); // Free trial availability
+            $table->foreignId('subject_id')->constrained()->onDelete('cascade');
             $table->timestamps(); // Timestamps
         });
     }

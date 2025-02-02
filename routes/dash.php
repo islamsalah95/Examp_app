@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Web\ExamController;
 use App\Http\Controllers\Web\MoodController;
 use App\Http\Controllers\Dash\RoleController;
 use App\Http\Controllers\Dash\AdminController;
@@ -31,10 +32,16 @@ Route::prefix('dashboard')->middleware(['AdminAuth','auth:admin'])->group(functi
     Route::put('settings/update', [SettingController::class, 'update'])->name('settings.update');
     Route::get('settings/sitemap', [SettingController::class, 'sitemap'])->name('settings.sitemap');
 
-    Route::resource('pricing-plan',      PricingPlanController::class);
+    Route::resource('pricing-plan',      PricingPlanController::class)->except('create','index');
+    Route::get('pricing-plan/create/{subject}', [PricingPlanController::class, 'create'])->name('pricing-plan.create');
+    Route::get('pricing-plan/index/{subject}', [PricingPlanController::class, 'index'])->name('pricing-plan.index');
 
     Route::resource('subject',      SubjectController::class);
+
     Route::resource('chapter',      ChapterController::class);
+    Route::resource('exam',      ExamController::class);
+
+    
 
     Route::resource('question',     QuestionController::class)->except('editAnswers','updateAnswers');
     Route::get('question/edit-answers/{question}', [QuestionController::class, 'editAnswers'])->name('question.editAnswers');

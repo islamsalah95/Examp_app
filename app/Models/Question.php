@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
+use App\Models\Exam;
 use App\Models\Answer;
-use App\Models\Chapter;
 use Laravel\Scout\Searchable;
 use Spatie\MediaLibrary\HasMedia;
 use Illuminate\Database\Eloquent\Model;
@@ -13,11 +13,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Question extends Model implements HasMedia
 {
     use HasFactory , Searchable , InteractsWithMedia;
-    protected $fillable = ['question_text', 'description', 'summary', 'chapter_id','free_trial','year'];
+    protected $fillable = ['question_text', 'description', 'summary', 'exam_id'];
 
-    public function chapter()
+    public function exam()
     {
-        return $this->belongsTo(Chapter::class);
+        return $this->belongsTo(Exam::class);
     }
 
     public function answers()
@@ -34,9 +34,7 @@ class Question extends Model implements HasMedia
             'question_text' => $this->question_text,
             'description' => $this->description,
             'summary' => $this->summary,
-            'chapter_id' => $this->chapter->name, 
-            'free_trial' => $this->free_trial, 
-            'year' => $this->year, 
+            'exam_id' => $this->exam->name, 
 
         ];
     }

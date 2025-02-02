@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Exam;
 use App\Models\Subject;
 use App\Models\Question;
 use Laravel\Scout\Searchable;
@@ -21,6 +22,11 @@ class Chapter extends Model
     public function questions()
     {
         return $this->hasMany(Question::class);
+    }
+
+    public function exams()
+    {
+        return $this->hasMany(Exam::class);
     }
 
     public function toSearchableArray()

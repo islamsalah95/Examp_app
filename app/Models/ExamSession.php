@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\Mood;
 use App\Models\User;
 use App\Models\Subject;
+use App\Models\ExamHistory;
 use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -12,10 +13,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class ExamSession extends Model
 {
     use HasFactory , Searchable;   
-    protected $fillable = ['user_id', 'mood_id', 'subject_id', 'years', 'chapters', 'question_count', 'status'];
+    protected $fillable = ['user_id', 'mood_id', 'subject_id', 'exams', 'chapters', 'question_count', 'status'];
 
     protected $casts = [
-        'years' => 'array',
+        'exams' => 'array',
         'chapters' => 'array',
     ];
 
@@ -32,6 +33,11 @@ class ExamSession extends Model
     public function subject()
     {
         return $this->belongsTo(Subject::class);
+    }
+
+    public function examHistories()
+    {
+        return $this->hasMany(ExamHistory::class);
     }
 
     public function toSearchableArray()

@@ -28,7 +28,7 @@
                     </div>
 
                     <div class="btn-group">
-                        <a href="{{ router('pricing-plan.create') }}" class="btn btn-secondary create-new btn-primary"
+                        <a href="{{ router('pricing-plan.create',['subject'=>$subject->id]) }}" class="btn btn-secondary create-new btn-primary"
                             tabindex="0" aria-controls="DataTables_Table_0" type="button">
                             <span><i class="ti ti-plus me-sm-1"></i> <span
                                     class="d-none d-sm-inline-block">Add</span></span>

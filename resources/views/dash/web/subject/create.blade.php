@@ -23,7 +23,7 @@
                         </div>
 
 
-                        <!-- Pricing -->
+                        {{-- <!-- Pricing -->
                         <div class="mb-3">
                             <label for="pricing_plans" class="form-label">Pricing Plans</label>
                             <select name="pricing_plans[]" id="pricing_plans" class="form-control" multiple>
@@ -34,7 +34,7 @@
                                     </option>
                                 @endforeach
                             </select>
-                        </div>
+                        </div> --}}
                         
 
 

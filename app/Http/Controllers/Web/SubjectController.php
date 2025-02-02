@@ -24,9 +24,8 @@ class SubjectController extends Controller
     public function create()
     {
 
-       $pricingPlans= PricingPlan::get();
         
-        return view('dash.web.subject.create',compact('pricingPlans'));
+        return view('dash.web.subject.create');
 
     }
 
@@ -36,11 +35,6 @@ class SubjectController extends Controller
     public function store(StoreSubjectRequest $request)
     {
         $subject = Subject::create($request->validated());
-
-    
-        if (!empty($request['pricing_plans'])) {
-            $subject->pricingPlans()->attach($request['pricing_plans']);
-        }
 
         return redirect()->route('subject.index')->with('success', 'Subject created successfully');
 

@@ -11,6 +11,8 @@
                 <div class="card-body">
                     <form action="{{ route('pricing-plan.store') }}" method="POST">
                         @csrf
+                         <input type="number" name="subject_id" value="{{ $subject->id }}" style="display: none">
+
                         <div class="mb-3">
                             <label for="name" class="form-label">Name</label>
                             <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name') }}">

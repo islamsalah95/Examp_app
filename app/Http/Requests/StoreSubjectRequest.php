@@ -23,8 +23,6 @@ class StoreSubjectRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string', 'max:255', 'unique:subjects,name'],
-            'pricing_plans' => ['required', 'array'],
-            'pricing_plans.*' => ['integer', 'exists:pricing_plans,id'],
         ];
     }
 }

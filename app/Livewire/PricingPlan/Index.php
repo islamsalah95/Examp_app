@@ -10,6 +10,7 @@ class Index extends Component
     public $search;
     public $select = 10;
 
+    public $subject;
     public function delete($id)
     {
         $pricingPlan= PricingPlan::find($id); // Retrieve the Advantage record

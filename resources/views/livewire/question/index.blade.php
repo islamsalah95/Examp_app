@@ -83,7 +83,7 @@
                         <tr>
                             <th>{{ $question['id'] }}</th>
                             <th>{{ $question['question_text'] }} </th>
-                            <th>{{ $question->chapter->name }} </th>
+                            <th>{{ $question->exam->name }} </th>
                             <td>
                                 <div class="dropdown">
                                     <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
