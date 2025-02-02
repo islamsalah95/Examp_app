@@ -14,7 +14,7 @@ class MoodController extends Controller
      */
     public function index()
     {
-        return view('dash.web.Mood.index');
+        return view('dash.web.mood.index');
     }
 
     /**

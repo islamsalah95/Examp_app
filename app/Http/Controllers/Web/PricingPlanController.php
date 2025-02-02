@@ -37,7 +37,7 @@ class PricingPlanController extends Controller
 
         PricingPlan::create($request->all());
 
-        return redirect()->route('pricing-plan.index')->with('success', 'Pricing plan created successfully.');
+        return redirect()->back()->with('success', 'Pricing plan created successfully.');
     }
 
     /**
@@ -65,7 +65,7 @@ class PricingPlanController extends Controller
 
         $pricingPlan->update($request->all());
 
-        return redirect()->route('pricing-plan.index')->with('success', 'Pricing plan updated successfully.');
+        return redirect()->back()->with('success', 'Pricing plan updated successfully.');
     }
 
     /**
