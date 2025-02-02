@@ -73,14 +73,12 @@
 3. Users who purchased a subject can access all exams, while free users can only access free exams.  
 
 **Input:**
-```json
-{
-    "mood_id": 1,
-    "subject_id": 1,
-    "chapters": [1,2,3],
-    "exams": [1,5],
-    "question_count": 20
-}
+1-    "mood_id": 1,
+2-    "subject_id": 1,
+3-    "chapters": [1,2,3],
+4-    "exams": [1,5],
+5-    "question_count": 20
+
 
 
 
