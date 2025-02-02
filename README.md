@@ -1,130 +1,87 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>API Documentation</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 20px;
-        }
-        .container {
-            max-width: 900px;
-            margin: auto;
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h1, h2 {
-            color: #333;
-        }
-        .endpoint {
-            background: #f9f9f9;
-            padding: 10px;
-            border-left: 5px solid #007BFF;
-            margin-bottom: 15px;
-        }
-        code {
-            background: #eef;
-            padding: 2px 5px;
-            border-radius: 4px;
-        }
-        .method {
-            font-weight: bold;
-            color: white;
-            padding: 3px 8px;
-            border-radius: 4px;
-        }
-        .get { background: green; }
-        .post { background: blue; }
-        .put { background: orange; }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>API Documentation</h1>
+# API Documentation
 
-        <h2>Authentication</h2>
-        <div class="endpoint">
-            <span class="method post">POST</span> <code>{{url}}/register</code>
-            <p><strong>Description:</strong> Register a new user.</p>
-            <p><strong>Input:</strong> name, email, password</p>
-            <p><strong>Response:</strong> Returns an authentication token.</p>
-        </div>
+## Authentication
 
-        <div class="endpoint">
-            <span class="method post">POST</span> <code>{{url}}/login</code>
-            <p><strong>Description:</strong> Login user.</p>
-            <p><strong>Input:</strong> email, password</p>
-            <p><strong>Response:</strong> Returns an authentication token.</p>
-        </div>
+### Register
+**POST** `{{url}}/register`  
+**Description:** Add a new user.  
+**Input:** `name`, `email`, `password`  
+**Response:** Returns an authentication token.  
 
-        <div class="endpoint">
-            <span class="method get">GET</span> <code>{{url}}/profile</code>
-            <p><strong>Description:</strong> Fetch user info.</p>
-            <p><strong>Response:</strong> Returns user details and token.</p>
-        </div>
+### Login
+**POST** `{{url}}/login`  
+**Description:** Login user.  
+**Input:** `email`, `password`  
+**Response:** Returns an authentication token.  
 
-        <h2>Subjects</h2>
-        <div class="endpoint">
-            <span class="method get">GET</span> <code>{{url}}/subjects</code>
-            <p><strong>Description:</strong> Retrieve all subjects.</p>
-            <p><strong>Response:</strong> Returns a list of subjects.</p>
-        </div>
+### Profile
+**GET** `{{url}}/profile`  
+**Description:** Fetch user info.  
+**Response:** Returns user details and token.  
 
-        <h2>Chapters</h2>
-        <div class="endpoint">
-            <span class="method get">GET</span> <code>{{url}}/chapters/{subjectId}</code>
-            <p><strong>Description:</strong> Retrieve chapters based on subject ID.</p>
-            <p><strong>Response:</strong> Returns a list of chapters.</p>
-        </div>
+---
 
-        <h2>Exams</h2>
-        <div class="endpoint">
-            <span class="method get">GET</span> <code>{{url}}/exams/{chapterId}</code>
-            <p><strong>Description:</strong> Retrieve exams based on chapter ID.</p>
-            <p><strong>Response:</strong> Returns a list of exams.</p>
-        </div>
+## Moods
 
-        <h2>Exam Sessions</h2>
-        <div class="endpoint">
-            <span class="method get">GET</span> <code>{{url}}/exam-sessions</code>
-            <p><strong>Description:</strong> Retrieve all exam sessions for the authenticated user.</p>
-            <p><strong>Response:</strong> Returns exam session data.</p>
-        </div>
-        
-        <div class="endpoint">
-            <span class="method post">POST</span> <code>{{url}}/exam-sessions</code>
-            <p><strong>Description:</strong> Create a new exam session.</p>
-            <p><strong>Input:</strong> mood_id, subject_id, chapters[], exams[], question_count</p>
-            <p><strong>Response:</strong> Stores session and generates questions.</p>
-        </div>
+### Get Moods
+**GET** `{{url}}/moods`  
+**Description:** Retrieve all moods.  
+**Response:** Returns a list of moods.  
 
-        <h2>Exam Histories</h2>
-        <div class="endpoint">
-            <span class="method get">GET</span> <code>{{url}}/exam-histories/{sessionId}</code>
-            <p><strong>Description:</strong> Retrieve exam history for a session.</p>
-            <p><strong>Response:</strong> Returns all questions and answers.</p>
-        </div>
+---
 
-        <div class="endpoint">
-            <span class="method put">PUT</span> <code>{{url}}/exam-histories/{examHistoryId}</code>
-            <p><strong>Description:</strong> Update a question when a user answers.</p>
-            <p><strong>Response:</strong> Returns the answer status.</p>
-        </div>
+## Subjects
 
-        <div class="endpoint">
-            <span class="method get">GET</span> <code>{{url}}/exam-histories/result/{sessionId}</code>
-            <p><strong>Description:</strong> Get the exam result.</p>
-            <p><strong>Response:</strong> Displays the exam summary.</p>
-        </div>
-    </div>
-</body>
-</html>
+### Get Subjects
+**GET** `{{url}}/subjects`  
+**Description:** Retrieve all subjects.  
+**Response:** Returns a list of subjects.  
+
+---
+
+## Chapters
+
+### Get Chapters
+**GET** `{{url}}/chapters/{subjectId}`  
+**Description:** Retrieve chapters based on subject ID.  
+**Response:** Returns a list of chapters.  
+
+---
+
+## Exams
+
+### Get Exams
+**GET** `{{url}}/exams/{chapterId}`  
+**Description:** Retrieve exams based on chapter ID.  
+**Response:** Returns a list of exams.  
+
+---
+
+## Exam Sessions
+
+### Get Exam Sessions
+**GET** `{{url}}/exam-sessions`  
+**Description:** Retrieve all exam sessions for the authenticated user.  
+**Response:** Returns exam session data.  
+
+### Create Exam Session
+**POST** `{{url}}/exam-sessions`  
+**Description:** Create a new exam session.  
+**Notices:**
+1. Chapters must belong to the selected subject.  
+2. Exams must belong to the selected chapters.  
+3. Users who purchased a subject can access all exams, while free users can only access free exams.  
+
+**Input:**
+```json
+{
+    "mood_id": 1,
+    "subject_id": 1,
+    "chapters": [1,2,3],
+    "exams": [1,5],
+    "question_count": 20
+}
+
 
 
 
