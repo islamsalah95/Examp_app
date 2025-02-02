@@ -85,36 +85,66 @@
 
 
 
+## Exam Histories
 
-- Islam salah
+### Get Exam History
+**GET** `{{url}}/exam-histories/{sessionId}`  
+**Description:** Retrieve exam history for a session.  
+**Response:** Returns all questions and answers.  
 
-- *install commands :
-- 1-import database
+### Update Exam History
+**PUT** `{{url}}/exam-histories/{examHistoryId}`  
+**Description:** Update a question when a user answers.  
+**Response:** Returns the answer status.  
 
-- 2-run:
-- composer install
-- npm install
-- php artisan storage:link
-- php artisan serve
-- php artisan storage:link
-- php artisan db:seed
+### Get Exam Result
+**GET** `{{url}}/exam-histories/result/{sessionId}`  
+**Description:** Get the exam result.  
+**Response:** Displays the exam summary.  
 
 
-- refresh app:
-- php artisan cache:clear;
-- php artisan config:clear;
-- php artisan route:clear;
-- php artisan view:clear;
 
-- Import Models into the Search Index:
-- php artisan scout:import "App\\Models\Mood"
-- php artisan scout:import "App\\Models\Subject" 
-- php artisan scout:import "App\\Models\Chapter"
-- php artisan scout:import "App\\Models\Subscription" 
-- php artisan scout:import "App\\Models\Question" 
-- php artisan scout:import "App\\Models\\Answer"
-- php artisan scout:import "App\\Models\\ExamSession"
-- php artisan scout:import "App\\Models\\ExamHistory"
+# *****************************************************************************************
+
+
+# Laravel Prject Install Start
+
+## Installation Commands
+
+### 1. Import Database
+Before running the project, make sure to import the database dump.
+
+### 2. Run the following commands:
+```sh
+composer install
+npm install
+php artisan storage:link
+php artisan serve
+php artisan storage:link
+php artisan db:seed
+```
+
+## Refresh Application Cache
+If you need to refresh the application, run the following commands:
+```sh
+php artisan cache:clear
+php artisan config:clear
+php artisan route:clear
+php artisan view:clear
+```
+
+## Import Models into the Search Index
+To import models into Algolia (or the configured search engine), run the following commands:
+```sh
+php artisan scout:import "App\Models\Mood"
+php artisan scout:import "App\Models\Subject"
+php artisan scout:import "App\Models\Chapter"
+php artisan scout:import "App\Models\Subscription"
+php artisan scout:import "App\Models\Question"
+php artisan scout:import "App\Models\Answer"
+php artisan scout:import "App\Models\ExamSession"
+php artisan scout:import "App\Models\ExamHistory"
+
 
 
 Exams Application Specification Document
