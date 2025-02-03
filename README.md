@@ -105,6 +105,11 @@
 # *****************************************************************************************
 
 
+# Admen Dashboard
+ https://exam.hatfpfp.com/Login
+'email'    => admin@gmail.com
+'password' => 123456789
+
 # Laravel Prject Install Start
 
 ## Installation Commands
