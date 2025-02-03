@@ -1,9 +1,9 @@
-# Admen Dashboard
+# Admin Dashboard
 -  https://exam.hatfpfp.com/Login 
 - email    = admin@gmail.com
 - password = 123456789
 - 
-# Api Postman Collectshion
+# Api Postman 
 
 - https://galactic-sunset-271099.postman.co/workspace/My-Workspace~ab034587-8271-4588-80d3-54c11a9f55f1/collection/20305695-25d9e6cb-7b1e-4772-9f85-79418a8bacbd?action=share&creator=20305695&active-environment=20305695-eba98ef1-c6dc-432d-a4e4-cae0ec907107
 
