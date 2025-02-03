@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\ApiExamController;
+use App\Http\Controllers\API\ApiMoodController;
 use App\Http\Controllers\API\ApiChapterController;
 use App\Http\Controllers\API\ApiSubjectController;
 use App\Http\Controllers\API\ApiQuestionController;
@@ -36,6 +37,8 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
 
 
 Route::middleware(['auth:sanctum'])->group(function () {
+
+Route::get('moods', [ApiMoodController::class, 'index']);
 
 Route::get('subjects', [ApiSubjectController::class, 'index']);
 
