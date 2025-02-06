@@ -11,6 +11,7 @@ use App\Models\Subscription;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
+use App\Services\Api\ApiExamHistoryService;
 
 
 
@@ -109,7 +110,6 @@ class ApiExamSessionService
     }
 
 
-
     public function createExamHistory($examSession, $apiResponse)
     {
         try {
@@ -167,4 +167,14 @@ class ApiExamSessionService
             return $apiResponse->serverError('Failed to create exam history.');
         }
     }
+
+    public function updateStatus($examSessionId){
+        $result = ApiExamHistoryService::getInstance()->getTotalDegreeExamHistories($examSessionId);
+        if($result['total']==$result['answer']){
+            $ExamSession = ExamSession::findOrFail($examSessionId);
+            $ExamSession->update(['status' => 'completed']); 
+            
+        }
+    }
+    
 }

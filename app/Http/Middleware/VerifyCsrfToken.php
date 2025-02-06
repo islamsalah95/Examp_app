@@ -13,6 +13,7 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
         'https://lightsteelblue-rail-575879.hostingersite.com/api/*',
+        'api/*'
 
     ];
 }

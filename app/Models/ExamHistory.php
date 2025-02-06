@@ -39,6 +39,9 @@ class ExamHistory extends Model
         return $this->belongsTo(Answer::class, 'exam_answer_id');
     }
 
+
+    
+
     public function toSearchableArray()
     {
         $array = $this->toArray();

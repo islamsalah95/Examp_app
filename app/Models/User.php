@@ -3,6 +3,8 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\ExamSession;
+use App\Models\Subscription;
 use Laravel\Scout\Searchable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
@@ -11,7 +13,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable , Searchable;
+    use HasApiTokens, HasFactory, Notifiable, Searchable;
 
     /**
      * The attributes that are mass assignable.
@@ -23,8 +25,15 @@ class User extends Authenticatable
         'email',
         'password',
         'status',
-        'last_seen'
+        'last_seen',
+        'mobile',
+        'country',
+        'address',
+        'status',
+        'last_login',
+
     ];
+
 
     /**
      * The attributes that should be hidden for serialization.
@@ -46,10 +55,47 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
+
+    public function examSessions()
+    {
+        return $this->hasMany(ExamSession::class);
+    }
+
+    public function subscriptions()
+    {
+        return $this->hasMany(Subscription::class);
+    }
+
+
+    public function totalAmountPaid()
+    {
+        $arrPrices = [];
+        foreach ($this->subscriptions as $key => $subscription) {
+            $arrPrices[] = $subscription->UserTotalAfterDiscount();
+        }
+        return array_sum($arrPrices);
+    }
+
+    public function totalExamSessionsStatus()
+    {
+        $arrTotalExamSessionsStatus = [
+            'completed' => 0,
+            'ongoing' => 0
+        ];
+        foreach ($this->examSessions as $key => $examSession) {
+            if ($examSession->status == 'completed') {
+                $arrTotalExamSessionsStatus['completed']++;
+            } else {
+                $arrTotalExamSessionsStatus['ongoing']++;
+            }
+        }
+        return $arrTotalExamSessionsStatus;
+    }
+
     public function toSearchableArray()
     {
         $array = $this->toArray();
-    
+
         // Only return specific fields for indexing
         return [
             'id' => $this->id,

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Carbon\Carbon;
+use App\Models\Coupon;
 use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -16,7 +17,7 @@ class Subscription extends Model
         'user_id',
         'subject_id',
         'pricing_plan_id',
-        'discount',
+        'coupon_id',
         'expires_at',
         'created_at'
     ];
@@ -43,6 +44,11 @@ class Subscription extends Model
         return $this->belongsTo(PricingPlan::class);
     }
 
+    public function coupon()
+    {
+        return $this->belongsTo(Coupon::class);
+    }
+
     public function expiresAt()
     {
         // Get the created_at timestamp
@@ -60,6 +66,17 @@ class Subscription extends Model
         }
         return $expiresAt;
     }
+
+    public function UserTotalAfterDiscount()
+    {
+        return $this->pricingPlan->priceAfterDiscount() - ($this->pricingPlan->priceAfterDiscount() * (($this->coupon->percent ?? 0) /100));
+    }
+    // public function totalPrice()
+    // {
+    //     return $this->pricingPlan()- ;
+    // }
+
+    // ${{$pricingPlan->price - ($pricingPlan->price * ($pricingPlan->discount/100) )}}
 
     public function toSearchableArray()
     {

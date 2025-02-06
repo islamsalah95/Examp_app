@@ -16,6 +16,11 @@ class PricingPlan extends Model
         return $this->belongsTo(Subject::class);
     }
     
+
+    public function priceAfterDiscount(){
+        return $this->price  -   ($this->price * ($this->discount/100) );
+
+    }
     
     public function toSearchableArray()
     {

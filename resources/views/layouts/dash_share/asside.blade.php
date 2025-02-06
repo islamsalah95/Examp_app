@@ -179,55 +179,47 @@
                 </li>
                 <!-- Moods -->
 
-                <!-- exam-history -->
-                <li class="menu-item {{ route_is('exam-history.*', 'open') }}" id="exam-history">
-                    <a href="{{ router('exam-history.index') }}" class="menu-link menu-toggle">
-                        <i class="menu-icon tf-icons ti ti-history"></i> <!-- Updated exam-history Icon -->
-                        <div data-i18n="Exam History">Exam History
+                <!-- users-profiles -->
+                <li class="menu-item {{ route_is('users-profiles.*', 'open') }}" id="users-profiles">
+                    <a href="{{ router('users-profiles.index') }}" class="menu-link menu-toggle">
+                        <i class="menu-icon tf-icons ti ti-calendar"></i>
+                        <div data-i18n="Users Profiles">Users Profiles
                         </div>
                         <div class="badge bg-primary rounded-pill ms-auto">0</div>
                     </a>
                     <ul class="menu-sub">
-                        <li class="menu-item {{ route_is('exam-history.index', 'active') }}">
-                            <a href="{{ router('exam-history.index') }}" class="menu-link">
+                        <li class="menu-item {{ route_is('users-profiles.index', 'active') }}">
+                            <a href="{{ router('users-profiles.index') }}" class="menu-link">
                                 <div data-i18n="Show">
                                     Show</div>
                             </a>
                         </li>
-                        <li class="menu-item {{ route_is('exam-history.create', 'active') }}">
-                            <a href="{{ router('exam-history.create') }}" class="menu-link">
-                                <div data-i18n="Create">
-                                    Create</div>
-                            </a>
-                        </li>
                     </ul>
                 </li>
-                <!-- exam-history -->
+                <!-- users-profiles -->
 
-                <!-- exam-session -->
-                <li class="menu-item {{ route_is('exam-session.*', 'open') }}" id="exam-session">
-                    <a href="{{ router('exam-session.index') }}" class="menu-link menu-toggle">
-                        <i class="menu-icon tf-icons ti ti-calendar"></i> <!-- Updated exam-session Icon -->
-                        <div data-i18n="Exam Session">Exam Session
-                        </div>
+
+                <!-- coupon -->
+                <li class="menu-item {{ route_is('coupon.*', 'open') }}" id="coupon">
+                    <a href="{{ router('coupon.index') }}" class="menu-link menu-toggle">
+                        <i class="menu-icon fa-solid fa-face-smile"></i> <!-- Updated coupon Icon -->
+                        <div data-i18n="Coupons">coupon</div>
                         <div class="badge bg-primary rounded-pill ms-auto">0</div>
                     </a>
                     <ul class="menu-sub">
-                        <li class="menu-item {{ route_is('exam-session.index', 'active') }}">
-                            <a href="{{ router('exam-session.index') }}" class="menu-link">
-                                <div data-i18n="Show">
-                                    Show</div>
+                        <li class="menu-item {{ route_is('coupon.index', 'active') }}">
+                            <a href="{{ router('coupon.index') }}" class="menu-link">
+                                <div data-i18n="Show">Show</div>
                             </a>
                         </li>
-                        <li class="menu-item {{ route_is('exam-session.create', 'active') }}">
-                            <a href="{{ router('exam-session.create') }}" class="menu-link">
-                                <div data-i18n="Create">
-                                    Create</div>
+                        <li class="menu-item {{ route_is('coupon.create', 'active') }}">
+                            <a href="{{ router('coupon.create') }}" class="menu-link">
+                                <div data-i18n="Create">Create</div>
                             </a>
                         </li>
                     </ul>
                 </li>
-                <!-- exam-session -->
+                <!-- coupon -->
 
                 <!-- Subscriptions -->
                 <li class="menu-item {{ route_is('subscription.*', 'open') }}" id="subscription">
